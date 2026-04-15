@@ -38,25 +38,30 @@ class School:
         return len(self.students)
 
 
-# ---- використання ----
-s1 = Student("Анна", "Python", "001")
-s2 = Student("Олег", "Design", "002")
-s3 = Student("Іван", "Python", "003")
+s1 = Student("Анна", "Python", 1)
+s2 = Student("Олег", "Design", 2)
+s3 = Student("Іван", "Python", 3)
 
 school = School("IT School")
+
+print(s1.info())
 
 school.add_student(s1)
 school.add_student(s2)
 school.add_student(s3)
-school.add_student(s1)
+school.add_student(Student("Марія", "Java", 1))
 
+print("\nСписок студентів:")
 school.list_students()
 
-print("Python студенти:")
+print("\nСтуденти курсу Python:")
 for s in school.students_by_course("Python"):
     print(s.info())
 
-print("Всього студентів:", school.total_students())
+print("\nВсього студентів:", school.total_students())
 
-school.remove_student("002")
-school.remove_student("999")
+school.remove_student(2)
+school.remove_student(999)
+
+print("\nПісля видалення:")
+school.list_students()
